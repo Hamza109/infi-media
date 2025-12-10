@@ -1,0 +1,17 @@
+<svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear" x1="8" y1="8" x2="84" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A931F5"/>
+      <stop offset="1" stop-color="#5A18E5"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="48" y1="12" x2="132" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A931F5"/>
+      <stop offset="1" stop-color="#5A18E5"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="28" fill="url(#paint0_linear)"/>
+  <path d="M34.5 24.5C30 20 23 20 18.5 24.5C14 29 14 36 18.5 40.5C23 45 30 45 34.5 40.5L38.5 36.5M29.5 29.5L33.5 25.5C38 21 45 21 49.5 25.5C54 30 54 37 49.5 41.5C45 46 38 46 33.5 41.5L28.5 36.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="74" y="34" fill="#3D1F63" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="18">INFI-D</text>
+  <text x="74" y="52" fill="#3D1F63" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="18">MEDIA</text>
+</svg>
+
