@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { useContactModal } from "@/context/ContactModalContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +14,23 @@ import { Label } from "@/components/ui/label";
 
 const ContactDialog = () => {
   const { open, closeModal } = useContactModal();
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
+    "idle"
+  );
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    // Simulated submit. Replace with real API call.
+    window.setTimeout(() => {
+      setStatus("success");
+      window.setTimeout(() => {
+        setStatus("idle");
+        closeModal();
+      }, 1200);
+    }, 800);
+  };
 
   return (
     <Dialog open={open} onOpenChange={(v) => (v ? undefined : closeModal())}>
@@ -26,7 +45,7 @@ const ContactDialog = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <form className='mt-4 space-y-5'>
+        <form className='mt-4 space-y-5' onSubmit={handleSubmit}>
           <div className='grid gap-4 sm:grid-cols-2'>
             <div className='space-y-2 text-left'>
               <Label htmlFor='dialog-name'>Name</Label>
@@ -65,11 +84,18 @@ const ContactDialog = () => {
             </Button>
             <Button
               type='submit'
-              className='rounded-full bg-gradient-to-r from-[#a931f5] to-[#5a18e5] px-6 text-base font-semibold text-white shadow-[0_8px_20px_rgba(114,40,233,0.28)] hover:brightness-105'
+              disabled={status === "submitting"}
+              className='rounded-full bg-gradient-to-r from-[#a931f5] to-[#5a18e5] px-6 text-base font-semibold text-white shadow-[0_8px_20px_rgba(114,40,233,0.28)] hover:brightness-105 disabled:opacity-60'
             >
-              Send Message
+              {status === "submitting" ? "Sending..." : "Send Message"}
             </Button>
           </div>
+
+          {status === "success" && (
+            <p className='text-sm font-medium text-green-700'>
+              Thanks! We got your request and will reply soon.
+            </p>
+          )}
         </form>
       </DialogContent>
     </Dialog>

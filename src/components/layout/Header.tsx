@@ -2,6 +2,7 @@ import logo from "@/assets/icons/logo.png";
 import { navigationLinks } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/context/ContactModalContext";
+import { Play } from "lucide-react";
 
 const Header = () => {
   const { openModal } = useContactModal();
@@ -20,7 +21,7 @@ const Header = () => {
           />
         </a>
 
-        <div className='flex items-center gap-6'>
+        <div className='flex items-center gap-4 md:gap-6'>
           <nav className='hidden md:block' aria-label='Primary'>
             <ul className='flex items-center gap-6 text-[15px] font-medium text-slate-600'>
               {navigationLinks.map((link) => (
